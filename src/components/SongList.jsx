@@ -14,7 +14,7 @@ import SongItem from './SongItem';
 // import { themeColor } from '../../../../config';
 // ReactDOM.render(<App />, document.getElementById('root'));
 
-class MyList extends Component{
+class SongList extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -51,4 +51,4 @@ const styles = {
 	}
 };
 
-export default MyList;
+export default SongList;

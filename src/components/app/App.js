@@ -13,7 +13,7 @@ import MyHeader from '../MyHeader.jsx';
 import MyFooter from '../Footer';
 //import Test from '../Test';
 //import Text from '../Text';
-import MyList from '../MyList';
+import MyList from '../SongList';
 //import data from '../songs';
 import MusicPlayer from '../MusicPlayer';
 

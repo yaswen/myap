@@ -3,6 +3,7 @@ import {Row, Col, Button} from 'antd';
 import './songItem.css';
 import MVIcon from './MVIcon';
 import Artists from './Artists';
+import AddTo from './AddTo';
 import {connect} from 'react-redux';
 
 import neteaseMusicLogo from './images/netease_22.png';
@@ -95,7 +96,7 @@ class SongItem extends Component {
 						/>
 					</Col>
 					<Col sm={1}>
-						{/*<AddTo data={song} />*/}
+						<AddTo data={song} />
 					</Col>
 				</Row>
 			</li>
@@ -110,7 +111,7 @@ const logos = {
 };
 
 /*
-* 读取
+* 读取redux的state的数据，存到props：
 * currentSong当前播放歌曲。
 * playlist 播放列表
 * playAction 播歌状态

@@ -18,7 +18,7 @@ const musicPlayer = {
 	background: 'rgba(120, 120, 120, 1)',
 	color: 'white',
 };
-
+//提示的配置，右下角，下方距离50，存在时长3秒
 notification.config({
   placement: 'bottomRight',
   bottom: 50,
@@ -186,10 +186,12 @@ class MusicPlayer extends Component {
     this.audio.pause();
   }
 
+  //获得歌曲资源,
   getSongSource(platform, originalId, callback) {
     this.setState({
       getMusicUrlStatus: 'started',
     });
+	  console.log(`getSongSource - ${platform}/${originalId}`);
     fetch(`http://tongzhong.xyz/api/song_source/${platform}/${originalId}`)//暂时使用铜钟的url，数据TODO
       .then(res => res.json())
       .then(json => {
@@ -236,7 +238,8 @@ class MusicPlayer extends Component {
     this.setState({ volume: value });
     localStorage.setItem('volume', value);
   }
-
+//上一首或下一首,参数传入props的playNext函数.
+  //绑定的是上一首和下一首.
   playNext(direction) {
     const { currentSong, playlist } = this.props;
     let { playMode } = this.state;
@@ -246,15 +249,17 @@ class MusicPlayer extends Component {
     this.props.playNext(currentSong, playlist, playMode, direction);
   }
 
+//切换播放模式.
   switchPlayMode() {
-    const i = playModes.indexOf(this.state.playMode);
-    const mode = playModes[i + 1] || playModes[0];
+    const i = playModes.indexOf(this.state.playMode);//当前的playMode是playModes中的第几个..这个playModes是文件开头定义的常量
+    const mode = playModes[i + 1] || playModes[0];//如果超出了playModes的长度,playModes[i+1]会返回undefined,整个表达式的值就是||后边的.
     localStorage.setItem('playMode', mode);
     this.setState({
       playMode: mode,
     });
   }
-
+  //点击了播放列表按钮.绑定的是播放列表按钮的onClick
+  //先从props中取shouldShowPlaylist,如果已显示,隐藏,如果未显示,显示.
   clickPlaylistBtn() {
     const { shouldShowPlaylist } = this.props;
     if (shouldShowPlaylist) {
