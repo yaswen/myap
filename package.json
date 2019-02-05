@@ -123,6 +123,7 @@
     "less-loader": "^4.1.0",
     "prop-types": "^15.6.2",
     "react-icons-kit": "^1.2.1",
-    "react-redux": "^6.0.0"
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1"
   }
 }

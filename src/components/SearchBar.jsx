@@ -18,11 +18,12 @@ class SearchBar extends Component {
 
 
 	onSearch(keyword) {
+		console.log(`search - ${keyword}`);
 		keyword = keyword.trim();
 		if (keyword !== '' &&
 			keyword !== this.props.searchParameters.keyword) {
 			this.props.updateSearchKeyword(keyword);
-			this.props.history.push(`http://tongzhong.xyz/search?keyword=${window.encodeURIComponent(keyword)}&type=${this.props.searchParameters.type}`);//暂时使用铜钟的url进行搜索 TODO
+			this.props.history.push(`/search?keyword=${window.encodeURIComponent(keyword)}&type=${this.props.searchParameters.type}`);//暂时使用铜钟的url进行搜索 TODO
 		}
 	}
 

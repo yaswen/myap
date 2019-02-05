@@ -5,6 +5,7 @@ import { Row, Col } from 'antd';
 // import SearchBar from '../SearchBar/withDropdown';
 import logo from '../assets/logo.png';
 // import { themeColor } from '../../../../config';
+import SearchBar from './SearchBar';
 
 class Header extends Component {
 	constructor(props) {
@@ -26,8 +27,8 @@ class Header extends Component {
 						</div>
 					</Col>
 					<Col xs={24} sm={8} >
-						<div className="nowrap" style={styles.header}>fanfou</div>
-						{/*<SearchBar />*/}
+						{/*<div className="nowrap" style={styles.header}>fanfou</div>*/}
+						<SearchBar />
 					</Col>
 				</Row>
 			</div>

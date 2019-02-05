@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-// import searchHistory from './search_history';
-// import searchStatus from './search_status';
+import searchHistory from './search_history';
+import searchStatus from './search_status';
 import searchResults from './search_results';
 import searchParameters from './search_parameters';
 import playlist from './playlist';
@@ -20,6 +20,8 @@ export default combineReducers({
 	shouldShowPlaylist,
 	searchParameters,
 	searchResults,
+	searchHistory,
+	searchStatus,
 	todos,
 	visibilityFilter
 });

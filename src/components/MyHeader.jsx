@@ -9,6 +9,7 @@ import {Input ,Icon} from 'antd';
 // import { Link } from 'react-router-dom';
 
 // import SearchBar from '../SearchBar/withDropdown';
+import SearchBar from './SearchBar';
 import logo from '../assets/logo.png';
 // import { themeColor } from '../../../../config';
 // ReactDOM.render(<App />, document.getElementById('root'));
@@ -34,14 +35,14 @@ class MyHeader extends Component{
 						</div>
 					</Col>
 					<Col xs={24} sm={8} >
-						<div style={styles.header}>
+						{/*<div style={styles.header}>
 							<Search
 								placeholder="input search text"
 								onSearch={value => console.log(value)}
 								enterButton
 							/>
-						</div>
-						{/*<SearchBar />*/}
+						</div>*/}
+						<SearchBar />
 					</Col>
 				</Row>
 			</div>
