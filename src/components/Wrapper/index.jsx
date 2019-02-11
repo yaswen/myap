@@ -11,6 +11,7 @@ class Wrapper extends Component {
   }
 
   render() {
+    //console.log(`wrapper - render`);//test
     const { provider } = this.props;
     const { themeColor, logo, link } = providers[provider];
     return (

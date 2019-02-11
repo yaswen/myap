@@ -12,16 +12,18 @@ import todos from './todos';
 import visibilityFilter from './visibilityFilter';
 
 
+
 export default combineReducers({
 	// key: state name, value: state value
+	providers: () => ['netease', 'qq', 'xiami'],
+	searchHistory,
+	searchStatus,
+	searchResults,
+	searchParameters,
 	playlist,
 	playIndex,
 	playAction,
 	shouldShowPlaylist,
-	searchParameters,
-	searchResults,
-	searchHistory,
-	searchStatus,
 	todos,
 	visibilityFilter
 });

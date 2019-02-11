@@ -3,26 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
 
-//import reducers from './redux/reducers'
-import todoApp from './redux/reducers';
-
-
-
-
 import App from './components/app/App';
 //import Myap from './components/app/Myap';
-//import store from './redux/store/';
-import { createStore } from 'redux';
+import store from './redux/store/';
 import * as serviceWorker from './serviceWorker';
-//const store = createStore(reducers);
-let store = createStore(todoApp);
-//使用createStore方法，传入reducers即可新建store
-
-
-//ReactDOM.render(
-// 	<Provider store={store}>
-// 		<Myap />
-// 	</Provider>, document.getElementById('root'));
 
 ReactDOM.render(
 	<Provider store={store}>

@@ -21,9 +21,9 @@ class SearchBar extends Component {
 		console.log(`search - ${keyword}`);
 		keyword = keyword.trim();
 		if (keyword !== '' &&
-			keyword !== this.props.searchParameters.keyword) {
+			keyword !== this.props.searchParameters.keyword) {//不是当前搜索词
 			this.props.updateSearchKeyword(keyword);
-			this.props.history.push(`/search?keyword=${window.encodeURIComponent(keyword)}&type=${this.props.searchParameters.type}`);//暂时使用铜钟的url进行搜索 TODO
+			this.props.history.push(`/search?keyword=${window.encodeURIComponent(keyword)}&type=${this.props.searchParameters.type}`);//跳转到的url
 		}
 	}
 
@@ -86,7 +86,7 @@ function mapStateToProps(state) {
 		searchHistory: state.searchHistory,
 	};
 }
-
+//updateSearchKeyword 更新搜索关键词
 //clearSearchHistory 清空搜索历史，绑定在搜索历史下拉框的一个小Button上。
 function mapDispatchToProps(dispatch) {
 	return {

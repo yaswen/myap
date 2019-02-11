@@ -12,6 +12,7 @@ import {Icon, LocaleProvider, Layout} from 'antd';
 import MyHeader from '../MyHeader.jsx';
 //import MVIcon from '../MVIcon';
 import MyFooter from '../Footer';
+import Result from '../Result';
 //import Test from '../Test';
 //import Text from '../Text';
 import SongList from '../SongList';

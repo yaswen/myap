@@ -362,17 +362,6 @@ class MusicPlayer extends Component {
                   icon={modeIcons[this.state.playMode]}
                 />
               </a>
-              {/* <Button
-                onClick={this.switchPlayMode}
-                style={{
-                  border: 'none',
-                  backgroundColor: 'rgba(0, 0, 0, 0)',
-                }}
-              >
-                <Icon1
-                  icon={modeIcons[this.state.playMode]}
-                />
-              </Button> */}
             </Tooltip>
           </Col>
           <Col xs={10} sm={3}>
@@ -381,15 +370,6 @@ class MusicPlayer extends Component {
                 <a onClick={this.muteOrNot}>
                   <Icon1 icon={this.state.muted ? volume_mute : volume_2} />
                 </a>
-                {/* <Button
-                  onClick={this.muteOrNot}
-                  style={{
-                    border: 'none',
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                  }}
-                >
-                  <Icon1 icon={this.state.muted ? volume_mute : volume_2} />
-                </Button> */}
               </Col>
               <Col xs={21} sm={20} style={{ paddingRight: 5 }}>
                 <Slider min={0} max={1} step={0.01}
