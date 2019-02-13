@@ -82,7 +82,7 @@ class MusicPlayer extends Component {
       });
     });
     this.audio.addEventListener('play', () => {
-      document.title = `${this.props.currentSong.name} - 铜钟聚合音乐`;
+      document.title = `${this.props.currentSong.name} - 播放中`;
       if (this.interval) { clearInterval(this.interval); }
       this.interval = setInterval(() => {
         console.log('interval');
@@ -172,6 +172,7 @@ class MusicPlayer extends Component {
       this.props.updatePlayAction('play');
     }
   }
+
   play() {
     if (this.state.songSource) {
       this.audio.play();
@@ -191,8 +192,8 @@ class MusicPlayer extends Component {
     this.setState({
       getMusicUrlStatus: 'started',
     });
-	  console.log(`getSongSource - ${platform}/${originalId}`);
-    fetch(`http://tongzhong.xyz/api/song_source/${platform}/${originalId}`)//暂时使用铜钟的url，数据TODO
+	  //console.log(`getSongSource - ${platform}/${originalId}`);
+    fetch(`/api/song_source/${platform}/${originalId}`)//暂时使用铜钟的url，数据TODO
       .then(res => res.json())
       .then(json => {
         if (json.status === 'ok') {
@@ -201,7 +202,7 @@ class MusicPlayer extends Component {
             songLoaded: false,
           }, callback);
         } else {
-	        console.log('failed - json.status != ok');
+	        //console.log('failed - json.status != ok');
           this.setState({
             getMusicUrlStatus: 'failed',
           });

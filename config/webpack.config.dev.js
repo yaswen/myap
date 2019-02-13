@@ -175,18 +175,17 @@ module.exports = {
     rules: [
       // Disable require.ensure as it's not a standard language feature.
       { parser: { requireEnsure: false } },
-
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|mjs|jsx)$/,
         enforce: 'pre',
-	      loader:require.resolve('babel-loader'),
-	      options:{
-		      plugins:[['import', { libraryName: 'antd', style: true }]],
-		    cacheDirectory:true,
-	      },
-	      //loader和options是自己写的，原文如下：
+        loader:require.resolve('babel-loader'),
+        options:{
+          plugins:[['import', { libraryName: 'antd', style: true }]],
+          cacheDirectory:true,
+        },
+        //以上loader和options是自己写的，原文如下：
         // use: [
         //   {
         //     options: {
@@ -285,6 +284,7 @@ module.exports = {
             //
               test: /\.(css|less)$/,
             exclude: cssModuleRegex,
+            //loader: 'style!css!postcss!less?{modifyVars:{"@primary-color":"#00CC66"}}',//主题颜色
             // use: getStyleLoaders({
             //   importLoaders: 1,
             //
@@ -301,7 +301,7 @@ module.exports = {
 			          options: {
 				          javascriptEnabled: true ,
 				          modifyVars:{
-					          'link-color': '#183858',
+					          'link-color': '#141720',
                               'link-hover-color':'#EA7030',
 					          'link-active-color':'#FCA090',
                               'primary-color': '#EA7030',
@@ -310,9 +310,10 @@ module.exports = {
 					          'layout-header-height': 'auto',
 					          'layout-trigger-height': 'auto',
 					          'layout-zero-trigger-height': 'auto',
+					          'font-family' : 'SimSun, NSimSun, sans-serif',
 					          'layout-header-padding': 0,
 					          'layout-footer-padding': 0,
-					          'font-family' : ' Arial,Microsoft YaHei,宋体, sans-serif',
+
 				          }
 			          }}]
               //自加

@@ -74,10 +74,11 @@ class Result extends Component {
       </Row>
     ));
   }
+
   //翻页
   onPageChange(page) {
     const { provider, keyword, type, onResultResponded } = this.props;
-    fetch(`http://tongzhong.xyz/api/search?provider=${provider}&keyword=${keyword}&type=${type}&page=${page}`)
+    fetch(`/api/search?provider=${provider}&keyword=${keyword}&type=${type}&page=${page}`)
       .then(res => res.json())
       .then(json => {
         onResultResponded(provider, json);
@@ -101,7 +102,7 @@ class Result extends Component {
     } else {
       mainPart = <h3>{result.message}</h3>;
     }
-    console.log(`mainPart - : ${mainPart} + result - : ${result.message}`);//test
+    //console.log(`mainPart - : ${mainPart} + result - : ${result.message}`);//test
     return (
       <Wrapper provider={provider}
         pagination={ result.searchSuccess &&

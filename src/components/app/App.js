@@ -51,16 +51,19 @@ class App extends Component {
 					isLoaded: false,
 					error: error
 				})
-			})
+			});
+
 	}
 
 
 	render() {
 		let { searchStatus, searchResults, searchParameters } = this.props;
-		if (!this.state.isLoaded) {
-			return (<div>Loading</div>);
-		} else {
-			let songs = this.state.data.songs;
+		let songs=[];
+		if (this.state.isLoaded) {
+			 songs = this.state.data.songs;
+		}
+		//console.log('songs - : '+songs.toString());
+
 			return (
 				<div>
 					<BrowserRouter>
@@ -69,6 +72,7 @@ class App extends Component {
 							<MyHeader/>
 						</Header>
 						<Content>
+							{this.state.isLoaded &&
 							<div className="container"
 							     style={{
 								     marginTop: 80, borderBottom: '1px solid #DBDBDB'
@@ -106,6 +110,7 @@ class App extends Component {
 								</Switch>
 
 							</div>
+							}
 						</Content>
 						<Footer>
 							<MyFooter/>
@@ -117,7 +122,7 @@ class App extends Component {
 
 			);
 		}
-	}
+
 }
 
 const styles = {

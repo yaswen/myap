@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
 
 	onSearch(keyword) {
-		console.log(`search - ${keyword}`);
+		//console.log(`search - ${keyword}`);
 		keyword = keyword.trim();
 		if (keyword !== '' &&
 			keyword !== this.props.searchParameters.keyword) {//不是当前搜索词

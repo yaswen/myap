@@ -10,7 +10,7 @@ import {Input ,Icon} from 'antd';
 
 // import SearchBar from '../SearchBar/withDropdown';
 import SearchBar from './SearchBar';
-import logo from '../assets/logo.png';
+import logo from '../assets/yinyue.png';
 // import { themeColor } from '../../../../config';
 // ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -30,18 +30,12 @@ class MyHeader extends Component{
 					<Col xs={24} sm={7}>
 						<div style={styles.header}>
 							<a href="/">
-								<img src={logo} alt="铜钟shiwen音乐" />
+								<img src={logo} alt="综合音乐" />
 							</a>
 						</div>
 					</Col>
 					<Col xs={24} sm={8} >
-						{/*<div style={styles.header}>
-							<Search
-								placeholder="input search text"
-								onSearch={value => console.log(value)}
-								enterButton
-							/>
-						</div>*/}
+
 						<SearchBar />
 					</Col>
 				</Row>

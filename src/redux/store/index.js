@@ -18,8 +18,8 @@ store.subscribe(() => {
     onSearch();
     let resultsResponded = 0;
     providers.forEach((provider) => {
-      console.log(`fetch - : http://tongzhong.xyz/api/search?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`);//test
-      fetch(`http://tongzhong.xyz/api/search?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`, {//使用了tongzhong的api
+      //console.log(`fetch - : /api/search?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`);//test
+      fetch(`/api/search?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`, {//使用了tongzhong的api
         credentials: 'include'
       })
         .then(res => res.json())

@@ -255,18 +255,24 @@ module.exports = {
       {
         test: /\.(js|mjs|jsx)$/,
         enforce: 'pre',
-        use: [
-          {
-            options: {
-              //自加
-	            plugins:[['import', { libraryName: 'antd', style: true }]],
-              formatter: require.resolve('react-dev-utils/eslintFormatter'),
-              eslintPath: require.resolve('eslint'),
-              
-            },
-            loader: require.resolve('eslint-loader'),
-          },
-        ],
+        loader:require.resolve('babel-loader'),
+        options:{
+            plugins:[['import', { libraryName: 'antd', style: true }]],
+            cacheDirectory:true,
+        },
+        //以上loader和options是自己加的，以下注释为原文：
+        // use: [
+        //   {
+        //     options: {
+        //       //自加
+	     //        plugins:[['import', { libraryName: 'antd', style: true }]],
+        //       formatter: require.resolve('react-dev-utils/eslintFormatter'),
+        //       eslintPath: require.resolve('eslint'),
+        //
+        //     },
+        //     loader: require.resolve('eslint-loader'),
+        //   },
+        // ],
         include: paths.appSrc,
       },
       {
@@ -350,10 +356,38 @@ module.exports = {
             //test: cssRegex,
 	          test: /\.(css|less)$/,
             exclude: cssModuleRegex,
-            loader: getStyleLoaders({
-              importLoaders: 1,
-              sourceMap: shouldUseSourceMap,
-            }),
+            // loader: getStyleLoaders({
+            //   importLoaders: 1,
+            //   sourceMap: shouldUseSourceMap,
+            // }),
+            //以上loader为原文，一下use为自加
+	          use: [
+		          require.resolve('style-loader'),
+		          {
+			          loader: require.resolve('css-loader'),
+			          options: {
+				          importLoaders: 1,
+			          },
+		          },{
+			          loader:require.resolve('less-loader'),
+			          options: {
+				          javascriptEnabled: true ,
+				          modifyVars:{
+					          'link-color': '#183858',
+					          'link-hover-color':'#EA7030',
+					          'link-active-color':'#FCA090',
+					          'primary-color': '#EA7030',
+					          'layout-body-background': 'white',
+					          'layout-header-background': 'white',
+					          'layout-header-height': 'auto',
+					          'layout-trigger-height': 'auto',
+					          'layout-zero-trigger-height': 'auto',
+					          'layout-header-padding': 0,
+					          'layout-footer-padding': 0,
+					          'font-family' : ' Arial,Microsoft YaHei,宋体, sans-serif',
+				          }
+			          }}],
+              //以上自加
               //以下实在不知道加在哪,待研究loader配置方式：研究会了就好了。
               // TODO
 // 	        {
@@ -376,7 +410,7 @@ module.exports = {
             // containing package claims to have no side effects.
             // Remove this when webpack adds a warning or an error for this.
             // See https://github.com/webpack/webpack/issues/6571
-            sideEffects: true,
+            //sideEffects: true,//先注释了试试
           },
           // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
           // using the extension .module.css
