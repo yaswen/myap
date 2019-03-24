@@ -78,7 +78,7 @@ class Result extends Component {
   //翻页
   onPageChange(page) {
     const { provider, keyword, type, onResultResponded } = this.props;
-    fetch(`/api/search?provider=${provider}&keyword=${keyword}&type=${type}&page=${page}`)
+    fetch(`${urls.searchUrl}?provider=${provider}&keyword=${keyword}&type=${type}&page=${page}`)
       .then(res => res.json())
       .then(json => {
         onResultResponded(provider, json);

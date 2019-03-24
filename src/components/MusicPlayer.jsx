@@ -12,6 +12,7 @@ import Artists from './Artists';
 import MVIcon from './MVIcon';
 import Playlist from './Playlist';
 import { toMinAndSec } from '../lib/time_converter';
+import urls from '../config/urls';
 // import { musicPlayer, themeColor } from '../../../config';
 // const themeColor = '#EA7030';
 const musicPlayer = {
@@ -192,8 +193,8 @@ class MusicPlayer extends Component {
     this.setState({
       getMusicUrlStatus: 'started',
     });
-	  //console.log(`getSongSource - ${platform}/${originalId}`);
-    fetch(`/api/song_source/${platform}/${originalId}`)//暂时使用铜钟的url，数据TODO
+	  console.log(`getSongSource - ${platform}/${originalId}`);
+    fetch(`${urls.songSourceUrl}/${platform}/${originalId}`)//暂时使用铜钟的url，数据TODO
       .then(res => res.json())
       .then(json => {
         if (json.status === 'ok') {

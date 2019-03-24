@@ -12,14 +12,10 @@
 // const playlist = {
 //   width: 600,
 // };
+
+
 const themeColor = '#EA7030';
 
-export default {
-  //serverUrl,
-
-  //musicPlayer,
-  //playlist,
+export default{
 	themeColor,
-};
-
-
+} ;

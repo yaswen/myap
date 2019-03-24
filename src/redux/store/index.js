@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
 import reducers from '../reducers';
+import urls from '../../config/urls';
 
 const store = createStore(reducers);
 
@@ -18,8 +19,8 @@ store.subscribe(() => {
     onSearch();
     let resultsResponded = 0;
     providers.forEach((provider) => {
-      //console.log(`fetch - : /api/search?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`);//test
-      fetch(`/api/search?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`, {//使用了tongzhong的api
+      console.log(`${urls.searchUrl}?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`);//test
+      fetch(`${urls.searchUrl}?provider=${provider}&keyword=${window.encodeURIComponent(keyword)}&type=${type}`, {
         credentials: 'include'
       })
         .then(res => res.json())

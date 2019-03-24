@@ -21,6 +21,7 @@ import MusicPlayer from '../MusicPlayer';
 import SearchTypeMenu from '../SearchTypeMenu';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import themeColor from '../../config';
+import urls from '../../config/urls';
 const {Header, Footer, Content} = Layout;
 
 
@@ -36,7 +37,9 @@ class App extends Component {
 
 	componentDidMount() {
 		const _this = this; //先存一下this,以防使用箭头函数this会指向我们不希望它所指向的对象。
-		const url = "http://tongzhong.xyz/api/daily_recommendations";//暂时使用tongzhong的url TODO
+		const url = urls.dailyUrl;
+		// console.log(`urls = ${urls.dailyUrlTong}`);
+		// console.log(`axios - urlTong - ${url}`);
 		//使用了新技术“axios”进行ajax,获取今天的每日推荐歌曲的数据
 		axios.get(url)
 			.then(function (response) {
